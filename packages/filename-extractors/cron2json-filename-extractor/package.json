@@ -1,0 +1,16 @@
+{
+  "name": "@piyoppi/cron2json-filename-extractor",
+  "version": "0.1.0",
+  "description": "Generate documents from cron\"",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "echo '(no tests)'"
+  },
+  "author": "piyoppi",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

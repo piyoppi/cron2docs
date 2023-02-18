@@ -1,0 +1,13 @@
+{
+  "name": "@piyoppi/cron2documents",
+  "version": "0.1.0",
+  "description": "Generate documents from cron\"",
+  "main": "dist/index.js",
+  "scripts": {
+  },
+  "workspaces": [
+    "packages/**/*"
+  ],
+  "author": "piyoppi",
+  "license": "MIT"
+}
