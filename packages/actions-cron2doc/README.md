@@ -13,23 +13,26 @@ GitHub Actions to convert crontab files to documentation
     # Crontab string. Either this parameter or `cron_file` must be set.
     cron_string: ''
 
-    # File name of the output markdown.
+    # (optional) File name of the output markdown.
     # If this parameter is given, a markdown file is saved.
     output_filename: ''
 
-    # Language settings for output documents. One of the following values can be set.
+    # (optional) Language settings for output documents. One of the following values can be set.
     #  - ja
     #  - en
     # Defalt: ja
     language: ''
 
-    # Directories containing the task's source code.
+    # (optional) Directories containing the task's source code.
     task_dirs: ''
+
+    # (optional) Yaml based document
+    document_yaml_filename: ''
 ```
 
-### Extracting coments from script
+### Extracting comments from script
 
-This Actions bundles the following comment extractors.
+With parameter `task_dirs`, this Actions bundles the following comment extractors.
 
 | Extractor | File type |
 | --- | --- |
@@ -37,6 +40,19 @@ This Actions bundles the following comment extractors.
 | [@piyoppi/cron2json-comment-extractor-shellscript](/packages/comment-extractors/cron2json-comment-extractor-shellscript/) | ShellScript File |
 
 `task_dir` is specified to search for scripts. If a script is found, comments are extracted and written into the document.
+
+### Documentation witten in Yaml file
+
+With parameter `document_yaml_filename` you can write documents in Yaml format.
+If the document is found in a Yaml file, the command extractor process is skipped.
+
+```yaml
+commands:
+  - pattern: "\/path\/to\/daily-sales-script.sh"  # Regular expression matching the command
+    comment:
+      title: "Daily Sales Script"                 # Job title
+      summary: "Tally yesterday's sales."         # Summary
+```
 
 ## Example
 

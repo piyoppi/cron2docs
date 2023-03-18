@@ -23,6 +23,10 @@ inputs:
     description: 'File name of the output markdown'
     required: false
     default: ''
+  document_yaml_filename:
+    description: 'File name of the document'
+    required: false
+    default: ''
   rewrite_whitelist_path_from:
     description: 'Set to rewrite the white list basepath'
     required: false

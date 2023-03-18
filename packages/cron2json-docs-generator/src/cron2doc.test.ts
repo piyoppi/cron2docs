@@ -3,7 +3,11 @@ import { cron2doc } from './cron2doc'
 import { CommentGenerator } from '@piyoppi/cron2json-comment-generator'
 
 const dummyCommentGenerator: CommentGenerator = {
-  generate: (_: string) => ({raw: 'comment'})
+  generate: (command: string) => command === 'hogefuga.sh' ? null : {raw: 'comment'}
+}
+
+const dummyCommentGenerator2: CommentGenerator = {
+  generate: (_: string) => ({raw: 'comment2'})
 }
 
 const crontabCommand = `
@@ -16,7 +20,7 @@ const crontabCommand = `
 `
 
 test('Should return document', () => {
-  expect(cron2doc(crontabCommand, [dummyCommentGenerator])).toEqual([
+  expect(cron2doc(crontabCommand, [dummyCommentGenerator, dummyCommentGenerator2])).toEqual([
     {
       schedule: {
         command: 'hogefuga.sh',
@@ -38,7 +42,7 @@ test('Should return document', () => {
         }
       },
       id: 0,
-      comment: {raw: 'comment'}
+      comment: {raw: 'comment2'}
     },
     {
       schedule: {
