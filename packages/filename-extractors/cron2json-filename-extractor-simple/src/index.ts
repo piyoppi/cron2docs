@@ -20,7 +20,7 @@ export class Cron2JsonSimpleFilenameExtractor implements Cron2JsonSimpleFilename
     // validate pathes
 
     this._whitelist.forEach(item => {
-      if (item[0] !== '/') throw new Error('The filename whitelist must not contain relative paths')
+      if (item[0] !== '/') throw new Error(`The filename ${item} whitelist must not contain relative paths`)
     })
 
     if (this._options.baseDir && this._options.baseDir[0] !== '/') throw new Error('The baseDir must not contain relative paths')
