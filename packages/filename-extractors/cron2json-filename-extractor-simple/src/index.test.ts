@@ -84,7 +84,7 @@ test('Should return the filename if the overridePathes option is given', () => {
 })
 
 test('Should throw an error when the whitelist is including relative paths', () => {
-  expect(() => new Cron2JsonSimpleFilenameExtractor(['hoge/fuga.sh'])).toThrow('The filename whitelist must not contain relative paths')
+  expect(() => new Cron2JsonSimpleFilenameExtractor(['hoge/fuga.sh'])).toThrow('The filename hoge/fuga.sh whitelist must not contain relative paths')
 })
 
 test('Should throw an error when the baseDir is including relative paths', () => {

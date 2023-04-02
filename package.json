@@ -4,10 +4,15 @@
   "description": "Generate documents from cron\"",
   "main": "dist/index.js",
   "scripts": {
+    "build": "turbo build",
+    "test": "turbo test"
   },
   "workspaces": [
     "packages/**/*"
   ],
   "author": "piyoppi",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "turbo": "^1.8.8"
+  }
 }
