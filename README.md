@@ -1,6 +1,8 @@
 # @piyoppi/cron2docs
 
-Tools to convert crontab files to documents.
+[![test](https://github.com/piyoppi/cron2docs/actions/workflows/test.yml/badge.svg)](https://github.com/piyoppi/cron2docs/actions/workflows/test.yml)
+
+Tools to convert crontab files to documents. ([Blog](https://garakuta-toolbox.com/weblog/cron2docs-introduction/))
 
 ```
 `-- packages
