@@ -1,7 +1,7 @@
 {
   "name": "@piyoppi/cron2json-docs-display-table",
   "version": "0.1.0",
-  "description": "Generate documents from cron\"",
+  "description": "Generate documents from cron",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

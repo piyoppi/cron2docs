@@ -5,21 +5,14 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "ncc build src/index.ts --license licenses.txt",
-    "test": "vitest run"
+    "test": "echo 'The package has not some tests.' && exit 0"
   },
   "author": "piyoppi",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",
-    "@piyoppi/cron2json-comment-extractor": "0.1.0",
-    "@piyoppi/cron2json-comment-generator": "0.1.0",
-    "@piyoppi/cron2json-comment-generator-yaml": "0.1.0",
-    "@piyoppi/cron2json-comment-generator-file": "0.1.0",
-    "@piyoppi/cron2json-comment-extractor-shellscript": "0.1.0",
-    "@piyoppi/cron2json-filename-extractor-simple": "0.1.0",
-    "@piyoppi/cron2json-comment-extractor-php": "0.1.0",
-    "@piyoppi/cron2json-docs-display-table": "^0.1.0"
+    "@piyoppi/cron2json-docs-display-markdown": "^0.1.0"
   },
   "devDependencies": {
     "typescript": "^4.9.5",

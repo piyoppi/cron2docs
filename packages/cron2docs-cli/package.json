@@ -1,0 +1,22 @@
+{
+  "name": "@piyoppi/cron2docs-cli",
+  "version": "0.1.0",
+  "description": "Generate documents from cron",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist",
+    "test": "echo 'The package has not some tests.' && exit 0"
+  },
+  "author": "piyoppi",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@piyoppi/cron2json-docs-display-markdown": "^0.1.0",
+    "commander": "^10.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@vercel/ncc": "^0.36.1",
+    "vitest": "^0.28.4"
+  }
+}

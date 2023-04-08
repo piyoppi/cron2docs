@@ -5,7 +5,8 @@ import { PhpCommentExtractor } from '@piyoppi/cron2json-comment-extractor-php'
 import { ShellScriptCommentExtractor } from '@piyoppi/cron2json-comment-extractor-shellscript'
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs'
 import { join as pathJoin } from 'path'
-import { Dictionary } from './languages/Dictionary'
+import { dictionary as ja } from './languages/ja'
+import { dictionary as en } from './languages/en'
 import { YamlCommentGenerator } from '@piyoppi/cron2json-comment-generator-yaml'
 
 type DocumentBuilderContent = {
@@ -18,15 +19,19 @@ type WhitelistRewriteConfig = {
   to: string
 }
 
+type DictonaryKey = 'ja' | 'en'
+
 export const build = (
   content: DocumentBuilderContent,
   taskDirs: string[],
-  dictionary: Dictionary,
+  dictionaryKey: DictonaryKey,
   outputFilename: string | null,
   relativePathBaseDir: string | null,
   overridePathes: WhitelistRewriteConfig[],
   documentYamlFilename: string | null,
 ) => {
+
+  const dictionary = dictionaryKey === 'ja' ? ja : en
 
   taskDirs.forEach(dir => {
     if (!existsSync(dir)) throw new Error(`No shch directory "${dir}"`)

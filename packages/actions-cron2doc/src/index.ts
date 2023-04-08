@@ -1,12 +1,9 @@
-import { dictionary as ja } from './languages/ja'
-import { dictionary as en } from './languages/en'
 import * as core from '@actions/core'
-import { build } from './DocumentBuilder'
-
-const dictionary = { ja }[core.getInput('language')] || en
+import { build } from '@piyoppi/cron2json-docs-display-markdown' 
 
 const filename = core.getInput('cron_file')
 const baseDir = core.getInput('relative_path_base_dir') || null
+const dictionary = core.getInput('language') === 'ja' ? 'ja' : 'en'
 const taskDirs = core.getInput('task_dirs')?.split(',').filter(dir => !!dir) || []
 const outputFilename = core.getInput('output_filename') || null
 const documentYamlFilename = core.getInput('document_yaml_filename')

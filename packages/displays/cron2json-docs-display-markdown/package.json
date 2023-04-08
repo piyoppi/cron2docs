@@ -1,0 +1,27 @@
+{
+  "name": "@piyoppi/cron2json-docs-display-markdown",
+  "version": "0.1.0",
+  "description": "Generate documents from cron",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "vitest run"
+  },
+  "author": "piyoppi",
+  "license": "MIT",
+  "dependencies": {
+    "@piyoppi/cron2json-comment-extractor": "0.1.0",
+    "@piyoppi/cron2json-comment-generator": "0.1.0",
+    "@piyoppi/cron2json-comment-generator-yaml": "0.1.0",
+    "@piyoppi/cron2json-comment-generator-file": "0.1.0",
+    "@piyoppi/cron2json-comment-extractor-shellscript": "0.1.0",
+    "@piyoppi/cron2json-filename-extractor-simple": "0.1.0",
+    "@piyoppi/cron2json-comment-extractor-php": "0.1.0",
+    "@piyoppi/cron2json-docs-display-table": "^0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "vitest": "^0.28.4"
+  }
+}

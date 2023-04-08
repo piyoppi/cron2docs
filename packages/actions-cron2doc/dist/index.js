@@ -19609,84 +19609,6 @@ var __webpack_exports__ = {};
 // ESM COMPAT FLAG
 __nccwpck_require__.r(__webpack_exports__);
 
-;// CONCATENATED MODULE: ./src/languages/ja.ts
-const baseDictionary = {
-    time: '時刻',
-    command: 'コマンド',
-    title: 'タイトル'
-};
-const dictionary = {
-    dailyTimelineTable: {
-        column: {
-            ...baseDictionary
-        }
-    },
-    dailyTimelineTableTitle: '日時ジョブ',
-    monthlyTimelineTable: {
-        column: {
-            day: '日',
-            ...baseDictionary
-        }
-    },
-    monthlyTimelineTableTitle: '月次ジョブ',
-    yearlyTimelineTable: {
-        column: {
-            month: '月',
-            day: '日',
-            ...baseDictionary
-        }
-    },
-    yearlyTimelineTableTitle: 'そのほかのジョブ',
-    jobListTable: {
-        field: {
-            month: '月',
-            day: '日',
-            time: '時刻',
-            command: 'コマンド'
-        }
-    },
-    jobListTableTitle: 'ジョブ一覧'
-};
-
-;// CONCATENATED MODULE: ./src/languages/en.ts
-const en_baseDictionary = {
-    time: 'Time',
-    command: 'Command',
-    title: 'Title'
-};
-const en_dictionary = {
-    dailyTimelineTable: {
-        column: {
-            ...en_baseDictionary
-        }
-    },
-    dailyTimelineTableTitle: 'Daily jobs',
-    monthlyTimelineTable: {
-        column: {
-            day: 'Day',
-            ...en_baseDictionary
-        }
-    },
-    monthlyTimelineTableTitle: 'Monthly jobs',
-    yearlyTimelineTable: {
-        column: {
-            month: 'Month',
-            day: 'Day',
-            ...en_baseDictionary
-        }
-    },
-    yearlyTimelineTableTitle: 'Other jobs',
-    jobListTable: {
-        field: {
-            month: 'Month',
-            day: 'Day',
-            time: 'Time',
-            command: 'Command'
-        }
-    },
-    jobListTableTitle: 'Job list'
-};
-
 // EXTERNAL MODULE: ../../node_modules/@actions/core/lib/core.js
 var core = __nccwpck_require__(7117);
 ;// CONCATENATED MODULE: ../displays/cron2json-docs-display-table/dist/JobListTableBuilder.js
@@ -19884,7 +19806,7 @@ class YearlyTimelineTableBuilder {
 
 
 
-;// CONCATENATED MODULE: ./src/DocumentMarkdownBuilder.ts
+;// CONCATENATED MODULE: ../displays/cron2json-docs-display-markdown/dist/DocumentMarkdownBuilder.js
 
 
 const buildDocumentMarkdown = (content, commentGenerators, dictionary) => {
@@ -20156,6 +20078,84 @@ class ShellScriptCommentExtractor {
     }
 }
 
+;// CONCATENATED MODULE: ../displays/cron2json-docs-display-markdown/dist/languages/ja.js
+const baseDictionary = {
+    time: '時刻',
+    command: 'コマンド',
+    title: 'タイトル'
+};
+const ja_dictionary = {
+    dailyTimelineTable: {
+        column: {
+            ...baseDictionary
+        }
+    },
+    dailyTimelineTableTitle: '日時ジョブ',
+    monthlyTimelineTable: {
+        column: {
+            day: '日',
+            ...baseDictionary
+        }
+    },
+    monthlyTimelineTableTitle: '月次ジョブ',
+    yearlyTimelineTable: {
+        column: {
+            month: '月',
+            day: '日',
+            ...baseDictionary
+        }
+    },
+    yearlyTimelineTableTitle: 'そのほかのジョブ',
+    jobListTable: {
+        field: {
+            month: '月',
+            day: '日',
+            time: '時刻',
+            command: 'コマンド'
+        }
+    },
+    jobListTableTitle: 'ジョブ一覧'
+};
+
+;// CONCATENATED MODULE: ../displays/cron2json-docs-display-markdown/dist/languages/en.js
+const en_baseDictionary = {
+    time: 'Time',
+    command: 'Command',
+    title: 'Title'
+};
+const en_dictionary = {
+    dailyTimelineTable: {
+        column: {
+            ...en_baseDictionary
+        }
+    },
+    dailyTimelineTableTitle: 'Daily jobs',
+    monthlyTimelineTable: {
+        column: {
+            day: 'Day',
+            ...en_baseDictionary
+        }
+    },
+    monthlyTimelineTableTitle: 'Monthly jobs',
+    yearlyTimelineTable: {
+        column: {
+            month: 'Month',
+            day: 'Day',
+            ...en_baseDictionary
+        }
+    },
+    yearlyTimelineTableTitle: 'Other jobs',
+    jobListTable: {
+        field: {
+            month: 'Month',
+            day: 'Day',
+            time: 'Time',
+            command: 'Command'
+        }
+    },
+    jobListTableTitle: 'Job list'
+};
+
 // EXTERNAL MODULE: ../../node_modules/yaml/dist/index.js
 var dist = __nccwpck_require__(8447);
 ;// CONCATENATED MODULE: ../comment-generators/cron2json-comment-generator-yaml/dist/index.js
@@ -20177,7 +20177,7 @@ class YamlCommentGenerator {
     }
 }
 
-;// CONCATENATED MODULE: ./src/DocumentBuilder.ts
+;// CONCATENATED MODULE: ../displays/cron2json-docs-display-markdown/dist/DocumentBuilder.js
 
 
 
@@ -20186,7 +20186,10 @@ class YamlCommentGenerator {
 
 
 
-const build = (content, taskDirs, dictionary, outputFilename, relativePathBaseDir, overridePathes, documentYamlFilename) => {
+
+
+const build = (content, taskDirs, dictionaryKey, outputFilename, relativePathBaseDir, overridePathes, documentYamlFilename) => {
+    const dictionary = dictionaryKey === 'ja' ? ja_dictionary : en_dictionary;
     taskDirs.forEach(dir => {
         if (!(0,external_fs_.existsSync)(dir))
             throw new Error(`No shch directory "${dir}"`);
@@ -20213,15 +20216,16 @@ const build = (content, taskDirs, dictionary, outputFilename, relativePathBaseDi
     }
 };
 
+;// CONCATENATED MODULE: ../displays/cron2json-docs-display-markdown/dist/index.js
+
+
 ;// CONCATENATED MODULE: ./src/index.ts
 var _a;
 
 
-
-
-const src_dictionary = { ja: dictionary }[core.getInput('language')] || en_dictionary;
 const filename = core.getInput('cron_file');
 const baseDir = core.getInput('relative_path_base_dir') || null;
+const dictionary = core.getInput('language') === 'ja' ? 'ja' : 'en';
 const taskDirs = ((_a = core.getInput('task_dirs')) === null || _a === void 0 ? void 0 : _a.split(',').filter(dir => !!dir)) || [];
 const outputFilename = core.getInput('output_filename') || null;
 const documentYamlFilename = core.getInput('document_yaml_filename');
@@ -20235,7 +20239,7 @@ const rewiteWhitelistPathes = rewriteWhitelistPathFrom && rewriteWhitelistPathTo
         from: rewriteWhitelistPathFrom,
         to: rewriteWhitelistPathTo
     }] : [];
-build(content, taskDirs, src_dictionary, outputFilename, baseDir, rewiteWhitelistPathes, documentYamlFilename);
+build(content, taskDirs, dictionary, outputFilename, baseDir, rewiteWhitelistPathes, documentYamlFilename);
 
 })();
 
